@@ -2,14 +2,12 @@
 #
 # Author: yinbao77
 # Description: 监控磁盘使用情况，超过阈值时发送邮件告警并记录日志
-#
 
-# ================== 配置项 ==================
+# ++++++ 配置项 ++++++
 LOGFILE=/var/log/disk_usage.log         # 日志文件路径
 THRESHOLD=10                            # 磁盘使用百分比阈值（例如：10 表示超过 10% 就告警）
 FROM_EMAIL="your_from_email@example.com"  # 发件人邮箱（请替换为你自己的邮箱）
 ALERT_EMAIL="your_alert_email@example.com"  # 收件人邮箱（请替换为你自己的邮箱）
-# ==========================================
 
 # 检查磁盘使用情况
 check_disk_usage() {
@@ -33,7 +31,7 @@ alert_disk_usage() {
   {
       echo "To: $ALERT_EMAIL"
       echo "From: $FROM_EMAIL"
-      echo "Subject: $PARTITION 达到 ${USAGE}% ！！！"
+      echo "Subject: $PARTITION 达到 ${USAGE}% !!!"
       echo "MIME-Version: 1.0"
       echo "Content-Type: text/plain; charset=UTF-8"
       echo
